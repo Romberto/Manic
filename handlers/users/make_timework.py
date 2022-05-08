@@ -29,8 +29,8 @@ async def set_day(call:types.CallbackQuery, state:FSMContext,):
         await call.message.answer('закончили')
 
     else:
-        tm = TimeManager(call.data)
-        exists = tm.set_days()
+        tm = TimeManager()
+        exists = tm.set_days(call.data)
         if not exists:
             data = await state.get_data()
             _range = data['_range']

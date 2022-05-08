@@ -12,19 +12,18 @@ def data(dates: str):
 
 
 class TimeManager():
-    def __init__(self, work_day: str):
-        self.w_day = work_day
+    def __init__(self):
 
-    def set_days(self):
+        self.tt = TimeTable()
+
+    def set_days(self, w_day: str):
         inter = ['08-10', '10-12', '12-14']  # временной интервал
-        tt = TimeTable()
-        tt.create_table(safe=True)
-        print(self.w_day)
-        date = data(self.w_day)
+        self.tt.create_table(safe=True)
+        date = data(w_day)
         query = TimeTable.select().where(TimeTable.day == date)
         if not query.exists():
             for interval in inter:
-                tt.create(day=date, time_zone=interval)
+                self.tt.create(day=date, time_zone=interval)
         else:
             return True
 
@@ -45,3 +44,26 @@ async def day_list(quantity_days):
         date_str = day + '.' + month
         day_list.append(date_str)
     return day_list
+
+
+# забирает список рабочих дат из базы данных
+async def get_days():
+    work_days_list = []
+    query = TimeTable.select(TimeTable.day).where(TimeTable.free == True).distinct()
+    for i in query:
+        date = i.day
+        str_day = datetime.datetime.strftime(date, '%d.%m')
+        work_days_list.append(str_day)
+    return work_days_list
+
+
+async def get_time(date: str):
+    time_list = []
+    year = datetime.datetime.today().year
+    s_list = date.split('.')
+    data = str(year) + '-' + s_list[0] + '-' + s_list[1]
+    date_time_obj = datetime.datetime.strptime(data, '%Y-%d-%m')
+    query = TimeTable.select().where(TimeTable.day == date_time_obj.date(), TimeTable.free == True)
+    for i in query:
+        time_list.append(i.time_zone)
+    return time_list
