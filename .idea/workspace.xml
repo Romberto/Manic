@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="добавил .env и data в .gitignore" />
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="добавил .env и data1 в .gitignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,7 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652073769686</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="добавил .env и data в .gitignore">
+      <created>1652074036158</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652074036158</updated>
+    </task>
+    <task id="LOCAL-00007" summary="добавил .env и data1 в .gitignore">
+      <created>1652074153078</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652074153078</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +159,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="выбор даты и времени пользователем" />
     <MESSAGE value="добавил .env и data в .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил .env и data в .gitignore" />
+    <MESSAGE value="добавил .env и data1 в .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил .env и data1 в .gitignore" />
   </component>
 </project>
