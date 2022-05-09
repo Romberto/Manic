@@ -2,3 +2,4 @@ venv/
 proba.py
 .env
 timetable.db
+data/
