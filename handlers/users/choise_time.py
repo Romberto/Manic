@@ -8,7 +8,7 @@ from state.states import ServisChoise
 @dp.callback_query_handler(state=ServisChoise.choise_date)
 async def choise_time(call:types.CallbackQuery, state:FSMContext):
     date = call.data
-    await state.update_data(date=call.data)
+    await state.update_data(date=call.data) # запись даты в state
     time = await get_time(date)
     kb_time = types.InlineKeyboardMarkup(row_width=4)
     buttons = []

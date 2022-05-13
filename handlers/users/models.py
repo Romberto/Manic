@@ -18,5 +18,11 @@ class TimeTable(BaseModel):
     day = DateField()
     time_zone = CharField()
     free = BooleanField(default=True)
-    name = CharField(null=True)
-    chat_id = CharField(null=True)
+
+
+class RecordRegistration(BaseModel):
+    service = CharField()
+    cunsomer_user = ForeignKeyField(Users)
+    time_table = ForeignKeyField(TimeTable)
+
+
