@@ -1,3 +1,5 @@
+from aiogram.dispatcher import FSMContext
+
 from handlers.users.models import Users
 from loader import dp
 from aiogram import types
@@ -28,3 +30,25 @@ async def start(message: types.Message):
     await message.answer(f'Привет {message.from_user.first_name}', reply_markup=start)
 
 
+@dp.message_handler(state='*', text='/start')
+async def start_tetx(message:types.Message, state: FSMContext):
+    await state.finish()
+    user = Users()
+    user.create_table(safe=True)
+    if message.from_user.first_name:
+        first_name = message.from_user.first_name
+    else:
+        first_name = None
+    if message.from_user.last_name:
+        last_name = message.from_user.last_name
+    else:
+        last_name = None
+    query = Users.select().where(Users.chat_id == message.chat.id)
+    if not query.exists():
+        user.create(chat_id=message.chat.id,
+                    first_name=first_name,
+                    last_name=last_name)
+    start = types.ReplyKeyboardMarkup([
+        [types.KeyboardButton('записаться')],
+    ], resize_keyboard=True, one_time_keyboard=True)
+    await message.answer(f'Привет {message.from_user.first_name}', reply_markup=start)

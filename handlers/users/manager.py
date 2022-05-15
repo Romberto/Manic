@@ -14,13 +14,25 @@ def data_str(dates: str):
     return date.date()
 
 
+async def date_to_str(date):
+    date_str = datetime.datetime.strftime(date, '%d.%m')
+    return date_str
+
+
+async def str_to_date(dates: str):
+    year = datetime.datetime.now().year
+    dates = str(year) + '.' + dates
+    date = datetime.datetime.strptime(dates, '%Y.%d.%m')
+    return date.date()
+
+
 class TimeManager():
     def __init__(self):
 
         self.tt = TimeTable()
 
     def set_days(self, w_day: str):
-        inter = ['10:00', '12:00', '14:00','16:00','18:00','20:00']  # временной интервал
+        inter = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00']  # временной интервал
         self.tt.create_table(safe=True)
         date = data_str(w_day)
         query = TimeTable.select().where(TimeTable.day == date)
