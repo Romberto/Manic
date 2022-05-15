@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase('data/timetable.db')
+db = SqliteDatabase('data/timetable.db', pragmas={'foreign_keys': 1})
 
 
 class BaseModel(Model):
@@ -22,7 +22,7 @@ class TimeTable(BaseModel):
 
 class RecordRegistration(BaseModel):
     service = CharField()
-    cunsomer_user = ForeignKeyField(Users)
-    time_table = ForeignKeyField(TimeTable)
+    cunsomer_user = ForeignKeyField(Users, on_delete='CASCADE')
+    time_table = ForeignKeyField(TimeTable, on_delete='CASCADE')
 
 

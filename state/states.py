@@ -2,6 +2,9 @@ from aiogram.dispatcher.filters.state import StatesGroup, State
 
 
 class WorkTimeTable(StatesGroup):
+    table_work = State()
+    tw_remove = State()
+    tw_remove_cb = State()
     choice_dates = State()
 
 
