@@ -1,7 +1,10 @@
 import datetime
 import calendar
+import os
 
 import peewee
+from aiogram import types
+
 from data.config import SERVISES
 from handlers.users.models import *
 
@@ -110,3 +113,10 @@ async def set_record(data: dict, chat_id):
         rr.create(service=SERVISES[service],
                   cunsomer_user=user,
                   time_table=tt)
+
+async def remove_pdf(dir_path):
+    for dirpath, dirnames, filenames in os.walk(dir_path):
+        for file in filenames:
+            if file.endswith('.pdf'):
+                os.remove(dir_path + '/' + file)
+

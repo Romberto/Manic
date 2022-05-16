@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="изменения в струтуре">
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка добавить запись">
+      <change afterPath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requarement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/edit_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/add_record.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proba.py" beforeDir="false" afterPath="$PROJECT_DIR$/proba.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/state/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/state/states.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +34,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/romberto/PycharmProjects/Manic&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/romberto/PycharmProjects/BotStruct_xlsx/manager/manager.py"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Manic" />
@@ -173,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652693205717</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="кнопка добавить запись">
+      <created>1652694475630</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652694475630</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +206,7 @@
     <MESSAGE value="реализация тестовая предоплата" />
     <MESSAGE value="second commit" />
     <MESSAGE value="изменения в струтуре" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменения в струтуре" />
+    <MESSAGE value="кнопка добавить запись" />
+    <option name="LAST_COMMIT_MESSAGE" value="кнопка добавить запись" />
   </component>
 </project>
