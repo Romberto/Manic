@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
-from handlers.users.manager import get_days, get_time
+from handlers.users.manager import get_days, get_time, set_record
 from handlers.users.models import TimeTable
 from keyboard.nav import kb_table_menu
 from loader import dp
@@ -41,11 +41,12 @@ async def edit_cb_record(call:types.CallbackQuery, state:FSMContext):
         await WorkTimeTable.tw_edit_time.set()
 
 @dp.callback_query_handler(state=WorkTimeTable.tw_edit_time)
-async def edit_cb_time(call:types.CallbackQuery):
+async def edit_cb_time(call:types.CallbackQuery, state:FSMContext):
     if call.data == 'end':
         await WorkTimeTable.table_work.set()
         await call.message.answer('Работа с графиком', reply_markup=kb_table_menu)
     else:
+        await state.update_data(time=call.data)
         kb_edit = types.InlineKeyboardMarkup(row_width=1)
         buttons = []
         for key, text in SERVISES.items():
@@ -55,6 +56,18 @@ async def edit_cb_time(call:types.CallbackQuery):
         await call.message.answer('выберите услугу', reply_markup=kb_edit)
         await WorkTimeTable.tw_edit_servise.set()
 
+@dp.callback_query_handler(state=WorkTimeTable.tw_edit_servise)
+async def edit_cb_service(call:types.CallbackQuery, state: FSMContext):
+    if call.data == 'end':
+        await WorkTimeTable.table_work.set()
+        await call.message.answer('Работа с графиком', reply_markup=kb_table_menu)
+    else:
+        await state.update_data(service=call.data)
+        state_data = await state.get_data()
+        await set_record(state_data, call.message.chat.id)
+        await call.message.answer(f'Вы ДОБАВИЛИ запись на {SERVISES[state_data["service"]]},\n'
+                                  f'дата {state_data["date"]}, время {state_data["time"]}')
+        await state.finish()
 
 
 
