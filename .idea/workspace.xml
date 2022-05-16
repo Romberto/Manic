@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка посмотреть график">
-      <change afterPath="$PROJECT_DIR$/handlers/TimeTable/view_record.py" afterDir="false" />
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка посмотреть записи">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyboard/nav.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboard/nav.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proba.py" beforeDir="false" afterPath="$PROJECT_DIR$/proba.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/state/states.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/start.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652708143285</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="кнопка посмотреть записи">
+      <created>1652711505951</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652711505951</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,6 +217,7 @@
     <MESSAGE value="изменения в струтуре" />
     <MESSAGE value="кнопка добавить запись" />
     <MESSAGE value="кнопка посмотреть график" />
-    <option name="LAST_COMMIT_MESSAGE" value="кнопка посмотреть график" />
+    <MESSAGE value="кнопка посмотреть записи" />
+    <option name="LAST_COMMIT_MESSAGE" value="кнопка посмотреть записи" />
   </component>
 </project>

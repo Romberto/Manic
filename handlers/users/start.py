@@ -24,9 +24,15 @@ async def start(message: types.Message):
         user.create(chat_id=message.chat.id,
                     first_name=first_name,
                     last_name=last_name)
-    start = types.ReplyKeyboardMarkup([
-        [types.KeyboardButton('записаться')],
-    ], resize_keyboard=True, one_time_keyboard=True)
+    for item in query:
+        if item.is_active == True:
+            start = types.ReplyKeyboardMarkup([
+                [types.KeyboardButton('записаться')],
+            ], resize_keyboard=True, one_time_keyboard=True)
+        else:
+            start = types.ReplyKeyboardMarkup([
+                [types.KeyboardButton('зарегистрироваться')],
+            ], resize_keyboard=True, one_time_keyboard=True)
     await message.answer(f'Привет {message.from_user.first_name}', reply_markup=start)
 
 
@@ -43,12 +49,18 @@ async def start_tetx(message:types.Message, state: FSMContext):
         last_name = message.from_user.last_name
     else:
         last_name = None
-    query = Users.select().where(Users.chat_id == message.chat.id)
+    query = Users.select().where(Users.chat_id == message.chat.id).first()
     if not query.exists():
         user.create(chat_id=message.chat.id,
                     first_name=first_name,
                     last_name=last_name)
-    start = types.ReplyKeyboardMarkup([
-        [types.KeyboardButton('записаться')],
-    ], resize_keyboard=True, one_time_keyboard=True)
+    print(query.is_active)
+    if query.is_active == True:
+        start = types.ReplyKeyboardMarkup([
+            [types.KeyboardButton('записаться')],
+        ], resize_keyboard=True, one_time_keyboard=True)
+    else:
+        start = types.ReplyKeyboardMarkup([
+            [types.KeyboardButton('зарегистрироваться')],
+        ], resize_keyboard=True, one_time_keyboard=True)
     await message.answer(f'Привет {message.from_user.first_name}', reply_markup=start)
