@@ -2,7 +2,7 @@ import datetime
 import calendar
 
 import peewee
-
+from data.config import SERVISES
 from handlers.users.models import *
 
 
@@ -66,7 +66,8 @@ async def get_days():
     today = datetime.datetime.today().date()
     work_days_list = []
     try:
-        query = TimeTable.select(TimeTable.day).where(TimeTable.free == True, TimeTable.day > today).distinct()
+        query = TimeTable.select(TimeTable.day).where(TimeTable.free == True,
+                                                      TimeTable.day > today).distinct().order_by(TimeTable.day)
         for i in query:
             date = i.day
             str_day = datetime.datetime.strftime(date, '%d.%m')
@@ -76,6 +77,7 @@ async def get_days():
         return False
 
 
+# возвращает список свободного времени
 async def get_time(date: str):
     time_list = []
     year = datetime.datetime.today().year
@@ -90,7 +92,7 @@ async def get_time(date: str):
 
 # добавляет запись в базу данных
 
-async def set_record(data: dict):
+async def set_record(data: dict, chat_id):
     d = data['date']
     service = data['service']
     d_obj = data_str(d)
@@ -98,13 +100,13 @@ async def set_record(data: dict):
                                                     TimeTable.time_zone == data['time']).execute()
     tt = TimeTable.select().where(TimeTable.day == d_obj, TimeTable.time_zone == data['time']).first()
 
-    user = Users.select().where(Users.chat_id == 841163160).first()
+    user = Users.select().where(Users.chat_id == chat_id).first()
     rr = RecordRegistration()
     rr.create_table(safe=True)
 
     query_rr = RecordRegistration.select().where(RecordRegistration.cunsomer_user == user,
                                                  RecordRegistration.service == service)
     if not query_rr.exists():
-        rr.create(service=service,
+        rr.create(service=SERVISES[service],
                   cunsomer_user=user,
                   time_table=tt)

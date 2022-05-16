@@ -3,8 +3,13 @@ from aiogram.dispatcher.filters.state import StatesGroup, State
 
 class WorkTimeTable(StatesGroup):
     table_work = State()
-    tw_remove = State()
-    tw_remove_cb = State()
+    tw_remove_day = State()
+    tw_remove_day_cb = State()
+    tw_remove_record = State()
+    tw_remove_record_cb = State()
+    tw_edit_date = State()
+    tw_edit_time = State()
+    tw_edit_servise = State()
     choice_dates = State()
 
 

@@ -23,11 +23,11 @@ async def remove_date(message: types.Message):
         buttons.append(types.InlineKeyboardButton(text=_day, callback_data=_day))
     buttons.append(types.InlineKeyboardButton(text='назад', callback_data='end'))
     kb_remove_day.add(*buttons)
-    await WorkTimeTable.tw_remove.set()
+    await WorkTimeTable.tw_remove_day.set()
     await message.answer('выберите дату для удаления из графика', reply_markup=kb_remove_day)
 
 
-@dp.callback_query_handler(state=WorkTimeTable.tw_remove)
+@dp.callback_query_handler(state=WorkTimeTable.tw_remove_day)
 async def cb_remove_date(call: types.CallbackQuery, state: FSMContext):
     if call.data == 'end':
         await WorkTimeTable.table_work.set()
@@ -39,7 +39,7 @@ async def cb_remove_date(call: types.CallbackQuery, state: FSMContext):
         query = TimeTable.select().where(TimeTable.day == _day, TimeTable.free == False)
         if query:
             await state.update_data(data_obj=call.data)
-            await WorkTimeTable.tw_remove_cb.set()
+            await WorkTimeTable.tw_remove_day_cb.set()
             kb_table_cb_menu = types.InlineKeyboardMarkup(row_width=2)
             buttons = [
                 types.InlineKeyboardButton(text='да', callback_data='yes'),
@@ -54,7 +54,7 @@ async def cb_remove_date(call: types.CallbackQuery, state: FSMContext):
             await call.message.answer(f'дата {date} удалена из графика', reply_markup=kb_table_menu)
 
 
-@dp.callback_query_handler(state=WorkTimeTable.tw_remove_cb)
+@dp.callback_query_handler(state=WorkTimeTable.tw_remove_day_cb)
 async def call_remove_date(call: types.CallbackQuery, state: FSMContext):
     if call.data == 'yes':
         d = await state.get_data()

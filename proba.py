@@ -1,3 +1,4 @@
+from data.config import SERVISES
 from handlers.users.models import TimeTable, Users, RecordRegistration
 from handlers.users.manager import TimeManager, data_str, str_to_date
 from datetime import datetime
@@ -10,12 +11,10 @@ def date_to_str(date):
 
 
 def set_date():
-    _day = data_str('19.05')
-    query = TimeTable.select().where(TimeTable.day == _day, TimeTable.free == False)
-    if query:
-        print('есть')
-    else:
-        print('no')
+    for key, text in SERVISES.items():
+        print(key, text)
+
+
 
 
 

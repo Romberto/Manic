@@ -13,7 +13,7 @@ from handlers.users.models import TimeTable, Users, RecordRegistration
 @dp.callback_query_handler(state=ServisChoise.prepayment)
 async def prepayment(call: types.CallbackQuery, state: FSMContext):
     PRICE = LabeledPrice(label='руб', amount=pred_price['pred_p'] * 100)
-    if call.data == 'prepayment':
+    if call.data == 'pediqur':
         await bot.delete_message(call.from_user.id, call.message.message_id)
         await bot.send_invoice(chat_id=call.message.chat.id,
                                title="pediqur",
@@ -24,7 +24,7 @@ async def prepayment(call: types.CallbackQuery, state: FSMContext):
                                start_parameter='test_bot',
                                prices=[PRICE],
                                )
-    elif call.data == 'pre_manic_bp':
+    elif call.data == 'manic_bp':
         await bot.send_invoice(chat_id=call.message.chat.id,
                                title="maniqur",
                                description='Предоплата за маникюр без покрытия',
@@ -35,7 +35,7 @@ async def prepayment(call: types.CallbackQuery, state: FSMContext):
                                prices=[PRICE],
                                )
 
-    elif call.data == 'prepayment_cover':
+    elif call.data == 'manic_cover':
         await bot.send_invoice(chat_id=call.message.chat.id,
                                title="maniqur_cover",
                                description='Предоплата за маникюр однотонный',
@@ -45,7 +45,7 @@ async def prepayment(call: types.CallbackQuery, state: FSMContext):
                                start_parameter='test_bot',
                                prices=[PRICE],
                                )
-    elif call.data == 'prepayment_cover_ds':
+    elif call.data == 'manic_design':
         await bot.send_invoice(chat_id=call.message.chat.id,
                                title="maniqur_design",
                                description='Предоплата за маникюр с дизайном',
@@ -76,7 +76,7 @@ async def process_pay(message: types.Message, state: FSMContext):
     state_data = await state.get_data()
     d = state_data['date']
     t = state_data['time']
-    await set_record(state_data)
+    await set_record(state_data, message.chat.id)
     await state.finish()
     if message.successful_payment.invoice_payload == 'pediqur':
         await message.answer(f''

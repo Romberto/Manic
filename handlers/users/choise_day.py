@@ -21,7 +21,7 @@ async def choise_date(message: types.Message, state: FSMContext):
         for day in day_list:
             buttons.append(types.InlineKeyboardButton(text=day, callback_data=day))
         kb_enroll.add(*buttons)
-        await message.answer('это свободные даты , выбрайте', reply_markup=kb_enroll)
+        await message.answer('это свободные даты , выбирайте', reply_markup=kb_enroll)
         await ServisChoise.choise_date.set()
     else:
         await message.answer('в графике нет дат')

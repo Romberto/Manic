@@ -12,6 +12,8 @@ class Users(BaseModel):
     chat_id = IntegerField()
     first_name = CharField(null=True)
     last_name = CharField(null=True)
+    phone = CharField(null=True)
+    is_active = BooleanField(default=False)
 
 
 class TimeTable(BaseModel):
@@ -23,6 +25,6 @@ class TimeTable(BaseModel):
 class RecordRegistration(BaseModel):
     service = CharField()
     cunsomer_user = ForeignKeyField(Users, on_delete='CASCADE')
-    time_table = ForeignKeyField(TimeTable, on_delete='CASCADE')
+    time_table = ForeignKeyField(TimeTable, on_delete='CASCADE', related_name='records')
 
 
