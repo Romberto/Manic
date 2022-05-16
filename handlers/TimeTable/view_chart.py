@@ -73,13 +73,7 @@ async def view_cb_chart(call: types.CallbackQuery, state: FSMContext):
                     elif x == 1:
                         pdf.set_text_color(0, 0, 10)
                         pdf.cell(100, height, y, 0, 1, 'J')
-        # pdf.output(f'data/text{call.message.chat.id}.pdf')
-        # doc = open(f'data/text{call.message.chat.id}.pdf', mode='rb')
-        # await call.message.answer_document(doc)
-        # doc.close()
-        # await WorkTimeTable.table_work.set()
-        # await remove_pdf('data')
-        # await call.message.answer('Работа с графиком', reply_markup=kb_table_menu)
+
     elif call.data == 'week':
         for day in range(1, 8):
             pdf.set_font("FreeSans", size=20)
@@ -127,13 +121,7 @@ async def view_cb_chart(call: types.CallbackQuery, state: FSMContext):
             pdf.set_text_color(0, 128, 0)
             pdf.cell(100, height, '*-' * 20, 0, 1, 'J')
             pdf.set_text_color(0, 0, 10)
-        # pdf.output(f'data/text{call.message.chat.id}.pdf')
-        # doc = open(f'data/text{call.message.chat.id}.pdf', mode='rb')
-        # await call.message.answer_document(doc)
-        # doc.close()
-        # await WorkTimeTable.table_work.set()
-        # await remove_pdf('data')
-        # await call.message.answer('Работа с графиком', reply_markup=kb_table_menu)
+
     elif call.data == 'totally':
         for day in range(1, 22):
             pdf.set_font("FreeSans", size=20)

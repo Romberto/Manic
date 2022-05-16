@@ -18,6 +18,6 @@ kb_table_menu = ReplyKeyboardMarkup([
         KeyboardButton('Добавить запись'),KeyboardButton('Удалить запись')
     ],
     [
-        KeyboardButton('Посмотреть график')
+        KeyboardButton('Посмотреть график'),KeyboardButton('Посмотреть записи')
     ]
 ], resize_keyboard=True, one_time_keyboard=True)

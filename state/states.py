@@ -4,6 +4,7 @@ from aiogram.dispatcher.filters.state import StatesGroup, State
 class WorkTimeTable(StatesGroup):
     table_work = State()
     tw_view_tomorrow = State()
+    tw_view_record = State()
     tw_remove_day = State()
     tw_remove_day_cb = State()
     tw_remove_record = State()

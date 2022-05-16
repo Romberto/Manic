@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка добавить запись">
-      <change afterPath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requarement.txt" afterDir="false" />
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка посмотреть график">
+      <change afterPath="$PROJECT_DIR$/handlers/TimeTable/view_record.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboard/nav.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboard/nav.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proba.py" beforeDir="false" afterPath="$PROJECT_DIR$/proba.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/state/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/state/states.py" afterDir="false" />
     </list>
@@ -184,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652694475630</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="кнопка посмотреть график">
+      <created>1652708143285</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652708143285</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +214,7 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="изменения в струтуре" />
     <MESSAGE value="кнопка добавить запись" />
-    <option name="LAST_COMMIT_MESSAGE" value="кнопка добавить запись" />
+    <MESSAGE value="кнопка посмотреть график" />
+    <option name="LAST_COMMIT_MESSAGE" value="кнопка посмотреть график" />
   </component>
 </project>
