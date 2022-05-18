@@ -23,3 +23,9 @@ class ServisChoise(StatesGroup):
     choise_manic = State()
     cover = State()
     prepayment = State()
+
+
+class RegistrationState(StatesGroup):
+    reg_step_first = State()
+    reg_step_name = State()
+    reg_step_phone = State()

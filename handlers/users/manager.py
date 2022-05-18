@@ -114,9 +114,44 @@ async def set_record(data: dict, chat_id):
                   cunsomer_user=user,
                   time_table=tt)
 
+
 async def remove_pdf(dir_path):
     for dirpath, dirnames, filenames in os.walk(dir_path):
         for file in filenames:
             if file.endswith('.pdf'):
                 os.remove(dir_path + '/' + file)
 
+
+async def validator_name(s):
+    if not s.isalpha():
+        return "Имя должно состоять только из букв"
+    elif len(s) < 2:
+        return "Имя не должно быть короче двух символов"
+    else:
+        return False
+
+
+async def validator_name_l(s):
+    if not s.isalpha():
+        return "фамилия должна состоять только из букв"
+    elif len(s) < 2:
+        return "Фамилия не должна быть короче двух символов"
+    else:
+        return False
+
+
+async def validator_phone(s):
+    if s.startswith('+'):
+        if not s[1:].isdigit():
+            return "допустимые символы +(плюс) или цифры"
+        elif len(s[1:]) != 11:
+            return "номер либо слишком длинный , либо слишком короткий"
+        else:
+            return False
+    else:
+        if not s.isdigit():
+            return "допустимые символы +(плюс) или цифры"
+        elif len(s) != 11:
+            return "номер либо слишком длинный , либо слишком короткий"
+        else:
+            return False

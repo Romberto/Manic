@@ -24,6 +24,29 @@ def set_date(s):
         else:
             i.delete_instance()
 
+def validator_phone(s:str):
+    if s.startswith('+'):
+        if not s[1:].isdigit():
+            return "допустимые символы +(плюс) или цифры"
+        elif len(s[1:]) != 11:
+            return "номер либо слишком длинный , либо слишком короткий"
+        else:
+            return False
+    else:
+        if not s.isdigit():
+            return "допустимые символы +(плюс) или цифры"
+        elif len(s) != 11:
+            return "номер либо слишком длинный , либо слишком короткий"
+        else:
+            return False
+
+
+
+
 
 if __name__ == '__main__':
-    set_date('tomorrow')
+    e = validator_phone('79030330509')
+    if e:
+        print(e)
+    else:
+        print('ok')
