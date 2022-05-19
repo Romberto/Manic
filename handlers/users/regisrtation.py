@@ -68,4 +68,4 @@ async def get_phone(message: types.Message, state: FSMContext):
         start = types.ReplyKeyboardMarkup([
             [types.KeyboardButton('записаться')],
         ], resize_keyboard=True, one_time_keyboard=True)
-        await message.answer(f'Чудесно {first_name} зегистрация завершена', reply_markup=start)
+        await message.answer(f'Чудесно {first_name} Регистрация завершена', reply_markup=start)

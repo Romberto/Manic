@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="регистрация">
-      <change afterPath="$PROJECT_DIR$/handlers/users/regisrtation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/choise_day.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/choise_day.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/make_timework.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/make_timework.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/manic_cover.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/prepayment.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/prepayment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/regisrtation.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/regisrtation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proba.py" beforeDir="false" afterPath="$PROJECT_DIR$/proba.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/state/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/state/states.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/romberto/PycharmProjects/Manic&quot;
+    &quot;last_opened_file_path&quot;: &quot;/home/romberto/PycharmProjects/BotStruct_xlsx&quot;
   }
 }</component>
   <component name="RunManager" selected="Python.app">
@@ -206,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652712604478</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="регистрация">
+      <created>1652881313693</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652881313693</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

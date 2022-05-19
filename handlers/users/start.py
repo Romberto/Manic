@@ -4,9 +4,6 @@ from handlers.users.models import Users
 from loader import dp
 from aiogram import types
 
-from state.states import WorkTimeTable
-
-
 @dp.message_handler(commands='start')
 async def start(message: types.Message):
     user = Users()
@@ -54,7 +51,6 @@ async def start_tetx(message:types.Message, state: FSMContext):
         user.create(chat_id=message.chat.id,
                     first_name=first_name,
                     last_name=last_name)
-    print(query.is_active)
     if query.is_active == True:
         start = types.ReplyKeyboardMarkup([
             [types.KeyboardButton('записаться')],

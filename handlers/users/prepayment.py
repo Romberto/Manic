@@ -1,13 +1,14 @@
 from aiogram.dispatcher import FSMContext
 from aiogram.types import LabeledPrice
 
-from data.config import TEST_UKASSA, price, pred_price
+from data.config import TEST_UKASSA, price, pred_price, SERVISES
 from handlers.users.manager import data_str, set_record
 from loader import dp
 from loader import bot
 from aiogram import types
 from state.states import ServisChoise
 from handlers.users.models import TimeTable, Users, RecordRegistration
+
 
 
 @dp.callback_query_handler(state=ServisChoise.prepayment)
@@ -77,32 +78,45 @@ async def process_pay(message: types.Message, state: FSMContext):
     d = state_data['date']
     t = state_data['time']
     await set_record(state_data, message.chat.id)
+    user = Users.select().where(Users.chat_id == message.chat.id).first()
+    if user.is_active == True:
+        start = types.ReplyKeyboardMarkup([
+            [types.KeyboardButton('записаться')],
+        ], resize_keyboard=True, one_time_keyboard=True)
+    else:
+        start = types.ReplyKeyboardMarkup([
+            [types.KeyboardButton('зарегистрироваться')],
+        ], resize_keyboard=True, one_time_keyboard=True)
     await state.finish()
     if message.successful_payment.invoice_payload == 'pediqur':
         await message.answer(f''
                              f'Вы внесли предоплату \n'
                              f'и записаны на педикюр'
                              f'дата {d} \n'
-                             f'время {t}')
+                             f'время {t}', reply_markup=start)
     elif message.successful_payment.invoice_payload == 'maniqur_bp':
         await message.answer(f''
                              f'Вы внесли предоплату \n'
                              f'и записаны на маникюр без покрытия\n'
                              f'дата {d} \n'
-                             f'время {t}')
+                             f'время {t}', reply_markup=start)
 
     elif message.successful_payment.invoice_payload == 'maniqur_cover':
         await message.answer(f''
                              f'Вы внесли предоплату \n'
                              f'и записаны на маникюр однотонный\n'
                              f'дата {d} \n'
-                             f'время {t}')
+                             f'время {t}', reply_markup=start)
 
     elif message.successful_payment.invoice_payload == 'maniqur_design':
         await message.answer(f''
                              f'Вы внесли предоплату \n'
                              f'и записаны на маникюр с дизайном\n'
                              f'дата {d} \n'
-                             f'время {t}')
+                             f'время {t}', reply_markup=start)
 
-
+    await dp.bot.send_message(chat_id=841163160, text='НОВАЯ ЗАПИСЬ \n'
+                                                      f'Клиент {user.first_name} {user.last_name} '
+                                                      f'внёс предоплату за '
+                                                      f'{SERVISES[state_data["service"]]}\n'
+                                                      f'на {d} {t}')
