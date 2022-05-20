@@ -3,7 +3,9 @@ import logging
 
 async def on_startup(dp):
     from utils.set_bot_commands import set_commands
+    from utils.send_record import check_rec
     await set_commands(dp)
+    await check_rec()
 
 
 

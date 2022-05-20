@@ -5,7 +5,7 @@ from handlers.users.manager import get_days, get_time, set_record
 from handlers.users.models import TimeTable
 from keyboard.nav import kb_table_menu
 from loader import dp
-from proba import date_to_str
+
 from state.states import WorkTimeTable
 from data.config import SERVISES
 

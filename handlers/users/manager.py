@@ -31,11 +31,9 @@ async def str_to_date(dates: str):
 
 class TimeManager():
     def __init__(self):
-
         self.tt = TimeTable()
-
     def set_days(self, w_day: str):
-        inter = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00']  # временной интервал
+        inter = ['09:00', '12:00', '14:00', '16:00', '18:00']  # временной интервал
         self.tt.create_table(safe=True)
         date = data_str(w_day)
         query = TimeTable.select().where(TimeTable.day == date)

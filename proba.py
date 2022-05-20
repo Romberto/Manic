@@ -1,52 +1,24 @@
-from data.config import SERVISES
-from handlers.users.models import TimeTable, Users, RecordRegistration
-from handlers.users.manager import TimeManager, data_str, str_to_date
-from datetime import datetime
 import datetime
-import calendar
-from fpdf import FPDF
+from time import sleep
+
+from handlers.users.models import TimeTable
 
 
-def date_to_str(date):
-    date_str = datetime.datetime.strftime(date, '%d.%m')
-    return date_str
 
-
-def set_date(s):
+def main():
     today = datetime.datetime.today().date()
-    rr = TimeTable.select().order_by(TimeTable.day)
-    for i in rr:
-        if i.day > today:
-            if i.records:
-                for item in i.records:
-                    print(i.day, i.time_zone, item.service)
+    check_date = today + datetime.timedelta(days=1)
+    query = TimeTable.select().where(TimeTable.day == check_date)
+    for item in query:
+        for record  in item.records:
+            chat_id = record.cunsomer_user.chat_id
 
-        else:
-            i.delete_instance()
+            print(chat_id, item.time_zone)
 
-def validator_phone(s:str):
-    if s.startswith('+'):
-        if not s[1:].isdigit():
-            return "допустимые символы +(плюс) или цифры"
-        elif len(s[1:]) != 11:
-            return "номер либо слишком длинный , либо слишком короткий"
-        else:
-            return False
-    else:
-        if not s.isdigit():
-            return "допустимые символы +(плюс) или цифры"
-        elif len(s) != 11:
-            return "номер либо слишком длинный , либо слишком короткий"
-        else:
-            return False
 
 
 
 
 
 if __name__ == '__main__':
-    e = validator_phone('79030330509')
-    if e:
-        print(e)
-    else:
-        print('ok')
+    main()

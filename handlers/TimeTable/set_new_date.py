@@ -29,7 +29,6 @@ async def set_day(call:types.CallbackQuery, state:FSMContext,):
     if call.data == 'end':
         await WorkTimeTable.table_work.set()
         await call.message.answer('Работа с графиком', reply_markup=kb_table_menu)
-
     else:
         tm = TimeManager()
         exists = tm.set_days(call.data)
