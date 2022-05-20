@@ -27,7 +27,8 @@ async def start(message: types.Message):
         ], resize_keyboard=True, one_time_keyboard=True)
         if item.is_active == True:
             start = types.ReplyKeyboardMarkup([
-                [types.KeyboardButton('записаться')],
+                [types.KeyboardButton('записаться'),
+                 types.KeyboardButton('моя запись')],
             ], resize_keyboard=True, one_time_keyboard=True)
 
     await message.answer(f'Привет {message.from_user.first_name}', reply_markup=start)
@@ -53,7 +54,8 @@ async def start_tetx(message:types.Message, state: FSMContext):
                     last_name=last_name)
     if query.is_active == True:
         start = types.ReplyKeyboardMarkup([
-            [types.KeyboardButton('записаться')],
+            [types.KeyboardButton('записаться'),
+             types.KeyboardButton('моя запись')],
         ], resize_keyboard=True, one_time_keyboard=True)
     else:
         start = types.ReplyKeyboardMarkup([

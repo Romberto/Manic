@@ -11,8 +11,9 @@ async def noon_print():
     # удаляем устаревшие записи
     today = datetime.datetime.today().date()
     query = TimeTable.select().where(TimeTable.day < today)
-    for item in query:
-        item.delete_instance()
+    if query:
+        for item in query:
+            item.delete_instance()
     # делаем запрос на завтра
     check_date = today + datetime.timedelta(days=1)
     query = TimeTable.select().where(TimeTable.day == check_date)

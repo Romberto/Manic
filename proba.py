@@ -1,19 +1,14 @@
 import datetime
 from time import sleep
 
-from handlers.users.models import TimeTable
-
+from handlers.users.models import TimeTable, RecordRegistration, Users
 
 
 def main():
-    today = datetime.datetime.today().date()
-    check_date = today + datetime.timedelta(days=1)
-    query = TimeTable.select().where(TimeTable.day == check_date)
-    for item in query:
-        for record  in item.records:
-            chat_id = record.cunsomer_user.chat_id
+    user = Users.select(Users.id).where(Users.chat_id == 841163160).first()
+    query = RecordRegistration.select().where(RecordRegistration.cunsomer_user == user).first()
+    print(query.service)
 
-            print(chat_id, item.time_zone)
 
 
 
