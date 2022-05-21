@@ -1,3 +1,4 @@
+from aiogram import types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 
 prepayment = InlineKeyboardMarkup(row_width=2)
@@ -20,4 +21,9 @@ kb_table_menu = ReplyKeyboardMarkup([
     [
         KeyboardButton('Посмотреть график'),KeyboardButton('Посмотреть записи')
     ]
+], resize_keyboard=True, one_time_keyboard=True)
+
+start = types.ReplyKeyboardMarkup([
+    [types.KeyboardButton('записаться'),
+     types.KeyboardButton('моя запись')],
 ], resize_keyboard=True, one_time_keyboard=True)

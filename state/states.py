@@ -29,3 +29,8 @@ class RegistrationState(StatesGroup):
     reg_step_first = State()
     reg_step_name = State()
     reg_step_phone = State()
+
+
+class MyRecordState(StatesGroup):
+    mr_first = State()
+    mr_second = State()

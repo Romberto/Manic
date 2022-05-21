@@ -1,5 +1,7 @@
 import datetime
 from fpdf import FPDF
+
+from data.config import MASTER
 from handlers.users.manager import date_to_str, remove_pdf
 from handlers.users.models import TimeTable
 from loader import dp
@@ -75,7 +77,7 @@ async def noon_print():
         pdf.output(f'data/ras_tomorrow.pdf')
         doc = open(f'data/ras_tomorrow.pdf', mode='rb')
         # посылаем сообщение в виде расписания на завтра, мастеру
-        await dp.bot.send_document(chat_id=841163160, document=doc)
+        await dp.bot.send_document(chat_id=MASTER, document=doc)
         doc.close()
         await remove_pdf('data')
 

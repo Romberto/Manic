@@ -68,7 +68,7 @@ async def get_days():
     work_days_list = []
     try:
         query = TimeTable.select(TimeTable.day).where(TimeTable.free == True,
-                                                      TimeTable.day > today).distinct().order_by(TimeTable.day)
+                                                      TimeTable.day >= today).distinct().order_by(TimeTable.day)
         for i in query:
             date = i.day
             str_day = datetime.datetime.strftime(date, '%d.%m')
@@ -97,10 +97,10 @@ async def set_record(data: dict, chat_id):
     d = data['date']
     service = data['service']
     d_obj = data_str(d)
+
+    tt = TimeTable.select().where(TimeTable.day == d_obj, TimeTable.time_zone == data['time']).first()
     TimeTable.update({TimeTable.free: False}).where(TimeTable.day == d_obj,
                                                     TimeTable.time_zone == data['time']).execute()
-    tt = TimeTable.select().where(TimeTable.day == d_obj, TimeTable.time_zone == data['time']).first()
-
     user = Users.select().where(Users.chat_id == chat_id).first()
     rr = RecordRegistration()
     rr.create_table(safe=True)

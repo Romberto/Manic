@@ -114,9 +114,11 @@ async def process_pay(message: types.Message, state: FSMContext):
                              f'и записаны на маникюр с дизайном\n'
                              f'дата {d} \n'
                              f'время {t}', reply_markup=start)
-
+    kb_confirm = types.InlineKeyboardMarkup()
+    buttons = [types.InlineKeyboardButton(text='подтвердить', callback_data=f'{user} {d} {t}')]
+    kb_confirm.add(*buttons)
     await dp.bot.send_message(chat_id=841163160, text='НОВАЯ ЗАПИСЬ \n'
                                                       f'Клиент {user.first_name} {user.last_name} '
                                                       f'внёс предоплату за '
                                                       f'{SERVISES[state_data["service"]]}\n'
-                                                      f'на {d} {t}')
+                                                      f'на {d} {t}', reply_markup=kb_confirm)

@@ -7,7 +7,7 @@ from .choise_time import dp
 from .choise_service import dp
 from .choise_raider import dp
 from .prepayment import dp
-
+from .confirm import dp
 from .my_record import dp
 
 __all__ = ['dp']
