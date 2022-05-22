@@ -24,11 +24,20 @@ async def choise_rider(call: types.CallbackQuery, state: FSMContext):
             types.InlineKeyboardButton(text='отмена', callback_data='cancel')
         ]
         prepayment.add(*buttons)
-        await call.message.answer(f'Вы выбрали услугу {SERVISES[call.data]}\n'
-                                  f'стоимость {price[call.data]} руб \n'
-                                  'предоплата 200 руб \n'
-                                  '****\n'
-                                  'перейти к предоплате?', reply_markup=prepayment)
+        text_message = f'Вы выбрали услугу {SERVISES[call.data]}\n'
+        f'стоимость {price[call.data]} руб \n'
+        'предоплата 200 руб \n'
+        '****\n'
+        'перейти к предоплате?'
+        if call.data == 'manic_design':
+            text_message =f'Вы выбрали услугу {SERVISES[call.data]}\n'\
+        f'стоимость от {price[call.data]} руб \n'\
+        'предоплата 200 руб \n'\
+        f'ВНИМАНИЕ финальная стоимость услуги может измениться\n' \
+        f'взависимости от сложности дизайна \n'\
+        '****\n'\
+        'перейти к предоплате?'
+        await call.message.answer(text=text_message, reply_markup=prepayment)
         await state.update_data(service=call.data)
         await ServisChoise.prepayment.set()
 

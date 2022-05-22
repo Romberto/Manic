@@ -26,5 +26,6 @@ class RecordRegistration(BaseModel):
     service = CharField()
     cunsomer_user = ForeignKeyField(Users, on_delete='CASCADE', related_name='users')
     time_table = ForeignKeyField(TimeTable, on_delete='CASCADE', related_name='records')
+    confirm = BooleanField(default=False)
 
 

@@ -1,9 +1,12 @@
 import datetime
+
+from aiogram import types
+from aiogram.dispatcher import FSMContext
 from fpdf import FPDF
 
 from data.config import MASTER
 from handlers.users.manager import date_to_str, remove_pdf
-from handlers.users.models import TimeTable
+from handlers.users.models import TimeTable, RecordRegistration, Users
 from loader import dp
 import asyncio
 import aioschedule
@@ -82,8 +85,27 @@ async def noon_print():
         await remove_pdf('data')
 
 
+async def check_confirm():
+    rr = RecordRegistration.select().where(RecordRegistration.confirm == False).first()
+    if rr:
+        user = rr.cunsomer_user
+        tt = TimeTable.select().join(RecordRegistration).where(RecordRegistration.confirm == False,
+                                                               RecordRegistration.cunsomer_user == user).first()
+        d = await date_to_str(tt.day)
+        t = tt.time_zone
+        kb_confirm = types.InlineKeyboardMarkup()
+        buttons = [types.InlineKeyboardButton(text='подтвердить', callback_data=f'{user} {d} {t}')]
+        kb_confirm.add(*buttons)
+        await dp.bot.send_message(chat_id=MASTER, text='НОВАЯ ЗАПИСЬ \n'
+                                                       f'Клиент {user.first_name} {user.last_name} '
+                                                       f'внёс предоплату за '
+                                                       f'{rr.service}\n'
+                                                       f'на {d} {t}', reply_markup=kb_confirm)
+
+
 async def scheduler():
     aioschedule.every().day.at("18:00").do(noon_print)
+    aioschedule.every(30).minutes.do(check_confirm)
     while True:
         await aioschedule.run_pending()
         await asyncio.sleep(1)

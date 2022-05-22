@@ -15,7 +15,7 @@ from state.states import WorkTimeTable
 @dp.message_handler(text='Удалить дату', state=WorkTimeTable.table_work)
 async def remove_date(message: types.Message):
     today = datetime.datetime.today().date()
-    query_date = TimeTable.select(TimeTable.day).where(TimeTable.day > today).distinct().order_by(TimeTable.day)
+    query_date = TimeTable.select(TimeTable.day).where(TimeTable.day >= today).distinct().order_by(TimeTable.day)
     kb_remove_day = types.InlineKeyboardMarkup(row_width=5)
     buttons = []
     for day in query_date:

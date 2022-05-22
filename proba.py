@@ -5,11 +5,12 @@ from handlers.users.models import TimeTable, RecordRegistration, Users
 
 
 def main():
-    user = Users.select(Users.id).where(Users.chat_id == 841163160).first()
-    query = RecordRegistration.select().where(RecordRegistration.cunsomer_user == user).first()
-    print(query.service)
+    rr = RecordRegistration.select().where(RecordRegistration.confirm == False).first()
+    user = rr.cunsomer_user
+    if rr:
 
-
+        tt = TimeTable.select().join(RecordRegistration).where(RecordRegistration.confirm == False, RecordRegistration.cunsomer_user == user).first()
+        print(tt.day)
 
 
 

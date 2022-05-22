@@ -32,6 +32,7 @@ async def str_to_date(dates: str):
 class TimeManager():
     def __init__(self):
         self.tt = TimeTable()
+
     def set_days(self, w_day: str):
         inter = ['09:00', '12:00', '14:00', '16:00', '18:00']  # временной интервал
         self.tt.create_table(safe=True)
@@ -110,7 +111,8 @@ async def set_record(data: dict, chat_id):
     if not query_rr.exists():
         rr.create(service=SERVISES[service],
                   cunsomer_user=user,
-                  time_table=tt)
+                  time_table=tt,
+                  confirm=False)
 
 
 async def remove_pdf(dir_path):
@@ -153,3 +155,37 @@ async def validator_phone(s):
             return "номер либо слишком длинный , либо слишком короткий"
         else:
             return False
+
+
+async def get_timetable_pdf(query, height, pdf):
+    for item in query:
+        if item.free == False:
+
+            for i in item.records:
+                pdf.set_text_color(255, 0, 0)
+                row = (item.time_zone, i.service, i.cunsomer_user.first_name)
+                for x, y in enumerate(row):
+                    if x == 0:
+                        pdf.set_font("FreeSansBo", style='B', size=18)
+                        pdf.set_text_color(255, 0, 0)
+                        pdf.cell(20, height, y, 0, 0, 'J')
+                        pdf.set_font("FreeSans", size=20)
+                    elif x == 1:
+                        pdf.set_text_color(0, 128, 0)
+                        pdf.cell(100, height, y, 0, 0, 'J')
+                    elif x == 2:
+                        pdf.set_text_color(0, 0, 10)
+                        pdf.cell(20, height, y, 0, 1, 'J')
+
+        else:
+            row = (item.time_zone, 'свободно')
+            for x, y in enumerate(row):
+                if x == 0:
+                    pdf.set_font("FreeSansBo", style='B', size=18)
+                    pdf.set_text_color(255, 0, 0)
+                    pdf.cell(20, height, y, 0, 0, 'J')
+                    pdf.set_font("FreeSans", size=20)
+
+                elif x == 1:
+                    pdf.set_text_color(0, 0, 10)
+                    pdf.cell(100, height, y, 0, 1, 'J')

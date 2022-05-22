@@ -1,7 +1,7 @@
 from aiogram.dispatcher import FSMContext
 from aiogram.types import LabeledPrice
 
-from data.config import TEST_UKASSA, price, pred_price, SERVISES
+from data.config import TEST_UKASSA, price, pred_price, SERVISES, MASTER
 from handlers.users.manager import data_str, set_record
 from loader import dp
 from loader import bot
@@ -117,7 +117,7 @@ async def process_pay(message: types.Message, state: FSMContext):
     kb_confirm = types.InlineKeyboardMarkup()
     buttons = [types.InlineKeyboardButton(text='подтвердить', callback_data=f'{user} {d} {t}')]
     kb_confirm.add(*buttons)
-    await dp.bot.send_message(chat_id=841163160, text='НОВАЯ ЗАПИСЬ \n'
+    await dp.bot.send_message(chat_id=MASTER, text='НОВАЯ ЗАПИСЬ \n'
                                                       f'Клиент {user.first_name} {user.last_name} '
                                                       f'внёс предоплату за '
                                                       f'{SERVISES[state_data["service"]]}\n'
