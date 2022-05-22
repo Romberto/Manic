@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка подтверждение записи">
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="подтверждение записи">
+      <change afterPath="$PROJECT_DIR$/handlers/users/help.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/remove_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/remove_date.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/TimeTable/view_chart.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/choise_raider.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/choise_raider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/confirm.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/confirm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/prepayment.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/prepayment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proba.py" beforeDir="false" afterPath="$PROJECT_DIR$/proba.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/send_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/send_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/set_bot_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/set_bot_commands.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653129685046</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="подтверждение записи">
+      <created>1653207819715</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1653207819715</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +273,7 @@
     <MESSAGE value="цикл отслеживает записи на завтра" />
     <MESSAGE value="кнопка моя запись" />
     <MESSAGE value="кнопка подтверждение записи" />
-    <option name="LAST_COMMIT_MESSAGE" value="кнопка подтверждение записи" />
+    <MESSAGE value="подтверждение записи" />
+    <option name="LAST_COMMIT_MESSAGE" value="подтверждение записи" />
   </component>
 </project>
