@@ -11,6 +11,7 @@ from keyboard.nav import prepayment, kb_table_menu
 
 @dp.callback_query_handler(state=ServisChoise.choise_servise)
 async def choise_rider(call: types.CallbackQuery, state: FSMContext):
+    await call.message.delete_reply_markup()
     if call.data == 'end':
         await state.finish()
         start = types.ReplyKeyboardMarkup([

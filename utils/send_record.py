@@ -26,7 +26,7 @@ async def noon_print():
         for elem in query:
             for record in elem.records:
                 chat_id = record.cunsomer_user.chat_id
-                service = record.cunsomer_user.service
+                service = record.service
                 first_name = record.cunsomer_user.first_name
                 date = await date_to_str(check_date)
                 time = elem.time_zone
@@ -110,6 +110,13 @@ async def scheduler():
         await aioschedule.run_pending()
         await asyncio.sleep(1)
 
+async def scheduler_check_confirm():
+
+    while True:
+        await aioschedule.run_pending()
+        await asyncio.sleep(1)
+
 
 async def check_rec():
     asyncio.create_task(scheduler())
+

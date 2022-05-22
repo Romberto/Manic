@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="подтверждение записи">
-      <change afterPath="$PROJECT_DIR$/handlers/users/help.py" afterDir="false" />
+    <list default="true" id="3d4debcd-7de9-40c0-83a8-56148b15b2f6" name="Changes" comment="кнопка помощь">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/set_bot_commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/set_bot_commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/choise_raider.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/choise_raider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/send_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/send_record.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +243,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653207819715</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="кнопка помощь">
+      <created>1653211745116</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1653211745116</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,6 +280,7 @@
     <MESSAGE value="кнопка моя запись" />
     <MESSAGE value="кнопка подтверждение записи" />
     <MESSAGE value="подтверждение записи" />
-    <option name="LAST_COMMIT_MESSAGE" value="подтверждение записи" />
+    <MESSAGE value="кнопка помощь" />
+    <option name="LAST_COMMIT_MESSAGE" value="кнопка помощь" />
   </component>
 </project>
